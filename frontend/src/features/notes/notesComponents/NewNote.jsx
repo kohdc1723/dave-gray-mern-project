@@ -4,7 +4,6 @@ import { NewNoteForm } from "./";
 
 const NewNote = () => {
     const users = useSelector(selectAllUsers);
-    console.log(users);
     
     return (users ? (
         <NewNoteForm users={users} />

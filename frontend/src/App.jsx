@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { Layout, Public, DashLayout } from "./components";
 import { Login, Welcome, PreFetch } from "./features/auth/authComponents";
-import { NotesList, EditNote, NewNoteForm } from "./features/notes/notesComponents";
+import { NotesList, EditNote, NewNote } from "./features/notes/notesComponents";
 import { UsersList, EditUser, NewUserForm } from "./features/users/usersComponents";
 
 const App = () => {
@@ -30,7 +30,7 @@ const App = () => {
                         <Route path="notes">
                             <Route index element={<NotesList />} />
                             <Route path=":id" element={<EditNote />} />
-                            <Route path="new" element={<NewNoteForm />} />
+                            <Route path="new" element={<NewNote />} />
                         </Route>
                     </Route>
                 </Route>
