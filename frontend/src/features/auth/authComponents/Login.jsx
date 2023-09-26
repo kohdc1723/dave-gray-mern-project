@@ -59,11 +59,10 @@ const Login = () => {
         return <p>Loading...</p>;
     } else {
         return (
-            <section className="public">
-                <header>
-                    <h1>Employee Login</h1>
-                </header>
-                <main className="login">
+            <main className="login">
+                <div className="login-window">
+                    <h2>Login</h2>
+
                     <p
                         ref={errorRef}
                         className={errMsg ? "errmsg" : "offscreen"}
@@ -71,13 +70,14 @@ const Login = () => {
                     >
                         {errMsg}
                     </p>
-                    <form className="form" onSubmit={handleSubmit}>
+
+                    <form className="login-form" onSubmit={handleSubmit}>
                         <label htmlFor="username">
                             Username:
                         </label>
                         <input
                             type="text"
-                            className="form__input"
+                            className="form-input"
                             id="username"
                             ref={usernameRef}
                             value={username}
@@ -91,33 +91,32 @@ const Login = () => {
                         </label>
                         <input
                             type="password"
-                            className="form__input"
+                            className="form-input"
                             id="password"
                             onChange={handleChangePassword}
                             value={password}
                             required
                         />
 
-                        <label htmlFor="persist" className="form__persist">
+                        <label htmlFor="persist" className="login-persist">
+                            Trust this device?
                             <input
                                 type="checkbox"
-                                className="form__checkbox"
+                                className="login-persist-checkbox"
                                 id="persist"
                                 onChange={handleToggle}
                                 checked={persist}
                             />
-                            Trust this device
                         </label>
 
-                        <button className="form__submit-button">
+                        <button className="login-submit-button">
                             Sign In
                         </button>
+                        
+                        <Link className="login-home-link" to="/">Go back to home</Link>
                     </form>
-                </main>
-                <footer>
-                    <Link to="/">Back to Home</Link>
-                </footer>
-            </section>
+                </div>
+            </main>
         );
     }
 };

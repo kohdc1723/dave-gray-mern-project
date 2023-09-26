@@ -85,9 +85,9 @@ const EditUserForm = ({ user }) => {
             </p>
 
             <form className="form" onSubmit={e => e.preventDefault()}>
-                <div className="form__title-row">
+                <div className="form-title-row">
                     <h2>Edit User</h2>
-                    <div className="form__action-buttons">
+                    <div className="form-buttons">
                         <button
                             className="icon-button"
                             title="Save"
@@ -105,11 +105,11 @@ const EditUserForm = ({ user }) => {
                         </button>
                     </div>
                 </div>
-                <label className="form__label" htmlFor="username">
+                <label className="form-label" htmlFor="username">
                     Username: <span className="nowrap">[3-20 letters]</span>
                 </label>
                 <input
-                    className={`form__input ${!validUsername ? "form__input--incomplete" : ""}`}
+                    className={`form-input ${!validUsername ? "form-input-incomplete" : ""}`}
                     id="username"
                     name="username"
                     type="text"
@@ -118,13 +118,11 @@ const EditUserForm = ({ user }) => {
                     onChange={onChangeUsername}
                 />
 
-                <label className="form__label" htmlFor="password">
-                    Password:
-                    <span className="nowrap">[empty = no change]</span>
-                    <span className="nowrap">[4-12 chars incl. !@#$%]</span>
+                <label className="form-label" htmlFor="password">
+                    Password: <span className="nowrap">[empty = no change]</span> <span className="nowrap">[4-12 chars incl. !@#$%]</span>
                 </label>
                 <input
-                    className={`form__input ${password && !validPassword ? "form__input--incomplete" : ""}`}
+                    className={`form-input ${password && !validPassword ? "form-input-incomplete" : ""}`}
                     id="password"
                     name="password"
                     type="password"
@@ -132,10 +130,10 @@ const EditUserForm = ({ user }) => {
                     onChange={onChangePassword}
                 />
 
-                <label className="form__label form__checkbox-container" htmlFor="user-active">
+                <label className="form-label form-checkbox-container" htmlFor="user-active">
                     ACTIVE:
                     <input
-                        className="form__checkbox"
+                        className="form-checkbox"
                         id="user-active"
                         name="user-active"
                         type="checkbox"
@@ -144,13 +142,13 @@ const EditUserForm = ({ user }) => {
                     />
                 </label>
 
-                <label className="form__label" htmlFor="roles">
+                <label className="form-label" htmlFor="roles">
                     ASSIGNED ROLES:
                 </label>
                 <select
                     id="roles"
                     name="roles"
-                    className={`form__select ${!Boolean(roles.length) ? "form__input--incomplete" : ""}`}
+                    className={`form-select ${!Boolean(roles.length) ? "form-input-incomplete" : ""}`}
                     multiple={true}
                     size="3"
                     value={roles}

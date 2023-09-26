@@ -54,9 +54,9 @@ const NewUserForm = () => {
             <p className={isError ? "errmsg" : "offscreen"}>{error?.data?.message}</p>
 
             <form className="form" onSubmit={onSubmitForm}>
-                <div className="form__title-row">
+                <div className="form-title-row">
                     <h2>New User</h2>
-                    <div className="form__action-buttons">
+                    <div className="form-buttons">
                         <button
                             className="icon-button"
                             title="Save"
@@ -66,10 +66,10 @@ const NewUserForm = () => {
                         </button>
                     </div>
                 </div>
-                <label className="form__label" htmlFor="username">
+                <label className="form-label" htmlFor="username">
                     Username: <span className="nowrap">[3-20 letters]</span></label>
                 <input
-                    className={`form__input ${!validUsername ? "form__input--incomplete" : ""}`}
+                    className={`form-input ${!validUsername ? "form-input-incomplete" : ""}`}
                     id="username"
                     name="username"
                     type="text"
@@ -78,11 +78,11 @@ const NewUserForm = () => {
                     onChange={onChangeUsername}
                 />
 
-                <label className="form__label" htmlFor="password">
+                <label className="form-label" htmlFor="password">
                     Password: <span className="nowrap">[4-12 chars incl. !@#$%]</span>
                 </label>
                 <input
-                    className={`form__input ${!validPassword ? "form__input--incomplete" : ""}`}
+                    className={`form-input ${!validPassword ? "form-input-incomplete" : ""}`}
                     id="password"
                     name="password"
                     type="password"
@@ -90,13 +90,13 @@ const NewUserForm = () => {
                     onChange={onChangePassword}
                 />
 
-                <label className="form__label" htmlFor="roles">
+                <label className="form-label" htmlFor="roles">
                     ASSIGNED ROLES:
                 </label>
                 <select
                     id="roles"
                     name="roles"
-                    className={`form__select ${!Boolean(roles.length) ? "form__input--incomplete" : ""}`}
+                    className={`form-select ${!Boolean(roles.length) ? "form-input-incomplete" : ""}`}
                     multiple={true}
                     size="3"
                     value={roles}

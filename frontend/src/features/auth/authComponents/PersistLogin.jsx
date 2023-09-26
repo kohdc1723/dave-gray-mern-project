@@ -37,7 +37,7 @@ const PersistLogin = () => {
         }
 
         return () => effectRan.current = true;
-    }, []);
+    }, [persist, refresh, token]);
 
     if (!persist) { // persist X
         return <Outlet />;

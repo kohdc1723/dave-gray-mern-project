@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { setCredentials } from "../../features/auth/authSlice";
 
 const baseQuery = fetchBaseQuery({
-    baseUrl: "http://localhost:3500",
+    baseUrl: "https://todoapp-api.onrender.com",
     credentials: "include",
     prepareHeaders: (headers, { getState }) => {
         const token = getState().auth.token;
@@ -15,10 +15,6 @@ const baseQuery = fetchBaseQuery({
 });
 
 const baseQueryWithReAuth = async (args, api, extraOptions) => {
-    console.log(args);
-    console.log(api);
-    console.log(extraOptions);
-
     // try the query
     let result = await baseQuery(args, api, extraOptions);
     // handle result

@@ -4,9 +4,12 @@ import { Layout, Public, DashLayout } from "./components";
 import { Login, Welcome, PreFetch, PersistLogin, RequireAuth } from "./features/auth/authComponents";
 import { NotesList, EditNote, NewNote } from "./features/notes/notesComponents";
 import { UsersList, EditUser, NewUserForm } from "./features/users/usersComponents";
+import useTitle from "./hooks/useTitle";
 import ROLES from "./config/roles";
 
 const App = () => {
+    useTitle("TechNotes");
+
     return (
         <Routes>
             <Route path="/" element={<Layout />}>

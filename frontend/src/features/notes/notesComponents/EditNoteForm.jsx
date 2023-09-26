@@ -13,7 +13,7 @@ const EditNoteForm = ({ note, users }) => {
     const [title, setTitle] = useState(note.title);
     const [text, setText] = useState(note.text);
     const [completed, setCompleted] = useState(note.completed);
-    const [userId, setUserId] = useState(note.user);
+    // const [userId, setUserId] = useState(note.user);
 
     const [updateNote, {
         isLoading: isUpdateLoading,
@@ -32,7 +32,7 @@ const EditNoteForm = ({ note, users }) => {
         if (isUpdateSuccess || isDeleteSuccess) {
             setTitle("");
             setText("");
-            setUserId("");
+            // setUserId("");
             navigate("/dash/notes");
         }
     }, [isUpdateSuccess, isDeleteSuccess, navigate]);
@@ -40,13 +40,13 @@ const EditNoteForm = ({ note, users }) => {
     const handleChangeTitle = e => setTitle(e.target.value);
     const handleChangeText = e => setText(e.target.value);
     const handleChangeCompleted = e => setCompleted(prev => !prev);
-    const handleChangeUserId = e => setUserId(e.target.value);
+    // const handleChangeUserId = e => setUserId(e.target.value);
 
-    const isValid = [title, text, userId].every(Boolean) && !isUpdateLoading;
+    const isValid = [title, text, note?.user].every(Boolean) && !isUpdateLoading;
 
     const handleClickSave = async () => {
         if (isValid) {
-            await updateNote({ id: note.id, user: userId, title, text, completed })
+            await updateNote({ id: note.id, user: note?.user, title, text, completed })
         }
     };
 
@@ -91,9 +91,9 @@ const EditNoteForm = ({ note, users }) => {
             </p>
 
             <form className="form" onSubmit={e => e.preventDefault()}>
-                <div className="form__title-row">
+                <div className="form-title-row">
                     <h2>Edit Note #{note.ticket}</h2>
-                    <div className="form__action-buttons">
+                    <div className="form-buttons">
                         <button
                             className="icon-button"
                             title="Save"
@@ -105,11 +105,12 @@ const EditNoteForm = ({ note, users }) => {
                         {deleteButton}
                     </div>
                 </div>
-                <label className="form__label" htmlFor="note-title">
+
+                <label className="form-label" htmlFor="note-title">
                     Title:
                 </label>
                 <input
-                    className={`form__input ${!title ? "form__input--incomplete" : ""}`}
+                    className={`form-input ${!title ? "form-input-incomplete" : ""}`}
                     id="note-title"
                     name="title"
                     type="text"
@@ -118,21 +119,22 @@ const EditNoteForm = ({ note, users }) => {
                     onChange={handleChangeTitle}
                 />
 
-                <label className="form__label" htmlFor="note-text">
+                <label className="form-label" htmlFor="note-text">
                     Text:</label>
                 <textarea
-                    className={`form__input form__input--text ${!text ? "form__input--incomplete" : ""}`}
+                    className={`form-input form-input-textarea ${!text ? "form-input-incomplete" : ""}`}
                     id="note-text"
                     name="text"
                     value={text}
                     onChange={handleChangeText}
                 />
-                <div className="form__row">
-                    <div className="form__divider">
-                        <label className="form__label form__checkbox-container" htmlFor="note-completed">
-                            WORK COMPLETE:
+
+                <div className="form-row">
+                    <div className="form-divider">
+                        <label className="form-label form-checkbox-container" htmlFor="note-completed">
+                            Completed:
                             <input
-                                className="form__checkbox"
+                                className="form-checkbox"
                                 id="note-completed"
                                 name="completed"
                                 type="checkbox"
@@ -141,13 +143,13 @@ const EditNoteForm = ({ note, users }) => {
                             />
                         </label>
 
-                        <label className="form__label form__checkbox-container" htmlFor="note-username">
-                            ASSIGNED TO:
+                        {/* <label className="form-label form-checkbox-container" htmlFor="note-username">
+                            Assigned to:
                         </label>
                         <select
                             id="note-username"
                             name="username"
-                            className="form__select"
+                            className="form-select"
                             value={userId}
                             onChange={handleChangeUserId}
                         >
@@ -156,11 +158,11 @@ const EditNoteForm = ({ note, users }) => {
                                     {user.username}
                                 </option>
                             ))}
-                        </select>
+                        </select> */}
                     </div>
-                    <div className="form__divider">
-                        <p className="form__created">Created:<br />{createdAt}</p>
-                        <p className="form__updated">Updated:<br />{updatedAt}</p>
+                    <div className="form-divider">
+                        <p><b>Created:</b><br />{createdAt}</p>
+                        <p><b>Updated:</b><br />{updatedAt}</p>
                     </div>
                 </div>
             </form>

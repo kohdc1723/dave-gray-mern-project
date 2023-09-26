@@ -30,12 +30,12 @@ const UsersList = () => {
             : null;
         
         return (
-            <table className="table table--users">
-                <thead className="table__thead">
+            <table className="table">
+                <thead className="table-thead">
                     <tr>
-                        <th scope="col" className="table__th user__username">Username</th>
-                        <th scope="col" className="table__th user__roles">Roles</th>
-                        <th scope="col" className="table__th user__edit">Edit</th>
+                        <th scope="col" className="table-th">Username</th>
+                        <th scope="col" className="table-th">Roles</th>
+                        <th scope="col" className="table-th">Edit</th>
                     </tr>
                 </thead>
                 <tbody>

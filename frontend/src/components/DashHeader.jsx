@@ -11,7 +11,7 @@ import {
 import { useSignoutMutation } from "../features/auth/authApiSlice";
 import useAuth from "../hooks/useAuth";
 
-const DASH_REGEX = /^\/dash(\/)?$/;
+// const DASH_REGEX = /^\/dash(\/)?$/;
 const NOTES_REGEX = /^\/dash\/notes(\/)?$/;
 const USERS_REGEX = /^\/dash\/users(\/)?$/;
 
@@ -33,11 +33,11 @@ const DashHeader = () => {
     const handleClickNotes = () => navigate("/dash/notes");
     const handleClickUsers = () => navigate("/dash/users");
 
-    const dashClass = (
-        !DASH_REGEX.test(pathname) &&
-        !NOTES_REGEX.test(pathname) &&
-        !USERS_REGEX.test(pathname)
-    ) ? "dash-header__container--small" : "";
+    // const dashClass = (
+    //     !DASH_REGEX.test(pathname) &&
+    //     !NOTES_REGEX.test(pathname) &&
+    //     !USERS_REGEX.test(pathname)
+    // ) ? "dash-header__container--small" : "";
 
     const logoutButton = (
         <button
@@ -117,14 +117,12 @@ const DashHeader = () => {
         <>
             <p className={isError ? "errmsg" : "offscreen"}>{error?.data?.message}</p>
             <header className="dash-header">
-                <div className={`dash-header__container`}> {/*dashClass*/}
-                    <Link to="/dash">
-                        <h1 className="dash-header__title">TechNotes</h1>
-                    </Link>
-                    <nav className="dash-header__nav">
-                        {buttons}
-                    </nav>
-                </div>
+                <Link to="/dash">
+                    <h1 className="dash-header-title">To-Do Note App</h1>
+                </Link>
+                <nav className="dash-header-nav">
+                    {buttons}
+                </nav>
             </header>
         </>
     );
