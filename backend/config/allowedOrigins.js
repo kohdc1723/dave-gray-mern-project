@@ -1,6 +1,6 @@
 const allowedOrigins = [
     "http://localhost:3000",
-    "https://www.technotes.com"
+    "https://todoapp-jqgl.onrender.com"
 ];
 
 module.exports = allowedOrigins;
